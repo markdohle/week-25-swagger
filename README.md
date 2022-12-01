@@ -25,16 +25,16 @@ Start by installing these npm packages:
 
 Then create your own “Hello World!” application to test that your code is executing.
 
-- Add a start "script" to the package.json in order to take advantage of nodemon.
+2. Add a start "script" to the package.json in order to take advantage of nodemon.
 
 ```"start": "nodemon index.js"```
 
-- index.js
+3. index.js
 
 ```
 //----Require the packages------
-const app = require("express");
-const nodemon = require("nodemon");
+const express = require("express");
+const app = express();
 const swaggeJsDoc = require("swagger-jsdoc");
 const swaggerUiExpress = require("swagger-ui-express");
 
@@ -52,7 +52,7 @@ app.listen(port, function() {
 });
 ```
 
-- run the app
+4. run the app
 
 ```npm start```
 
