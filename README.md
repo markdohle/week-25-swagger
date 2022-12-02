@@ -129,7 +129,60 @@ app.get('/books', function (req, res) {
 
 - GOTO port ```3000/api-docs``` and click get books and click execute to see the book.
 
+### Step 3
 
+Now you’ll use the same library example and generate an API along with documentation for a POST route.
+
+- Add Express configuartion for a data parser
+
+```
+//--------------body-parser package used to parse POST data----------
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+```
+
+Is body-parser package installed? Try running the program before installing. Actually, 'api-doc' allowed me to post a book without installing body-parser package. Is body parser even needed? Yes it is. If you remove the body-parser code, then the POST will not execute.
+
+- Add POST code
+
+```
+//-----------------funny swagger code for POSTing with a single parameter named 'title' with data located in the body----------------
+/**
+* @swagger
+* /book:
+*   post:
+*     description: Get one book
+*     parameters:
+*     - name: title
+*       description: Book title
+*       in: body
+*       required: true
+*       type: string
+*     responses:
+*       200:
+*         description: Success
+*
+*/
+```
+```
+//-------------Express configuration for POST route-------------
+app.post('/book', function (req, res) {
+  const title = req.body.title;
+  res.send({ title })
+});
+```
+
+- POST using swagger in the browser
+
+goto ```localhost:3000/api-docs```
+
+click on POST
+
+enter json script to add a book. Remember the funny swagger parameter 'title'.
+
+```{"title": "how to use swagger and body-parser to POST a book"}```
 
 
 

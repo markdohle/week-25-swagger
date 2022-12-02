@@ -4,6 +4,12 @@ const app = express();
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUiExpress = require("swagger-ui-express");
 
+//--------------body-parser package used to parse POST data----------
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 //-----Swagger Options--------
 
 const options = {
@@ -28,7 +34,7 @@ app.get('/', function (req, res) {
     res.send('Hello World!');
 });
 
-//----Default Route to the books-----
+//----Default Route to the books with funny swagger code-----
 /**
 * @swagger
 * /books:
@@ -50,6 +56,30 @@ app.get('/books', function (req, res) {
     ]);
 });
 
+//-----------------funny swagger code for POSTing with a single parameter named 'title' with data located in the body----------------
+/**
+* @swagger
+* /book:
+*   post:
+*     description: Get one book
+*     parameters:
+*     - name: title
+*       description: Book title
+*       in: body
+*       required: true
+*       type: string
+*     responses:
+*       200:
+*         description: Success
+*
+*/
+
+//-------------Express configuration for POST route-------------
+app.post('/book', function (req, res) {
+  const title = req.body.title;
+ 
+  res.send({ title })
+});
 
 //----Express Listener---------------
 const port = 3000
