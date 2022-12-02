@@ -1,11 +1,35 @@
 # week-25-swagger
 MIT xPro - Week 25 - API Documentation with Swagger
 
-1. Install Packages
+What is API Documentation?
+
+API documentation contains clear and concise instructions on how to use and integrate an API. 
+
+API Documentation Best Practices
+
+1. Write Documentation for Nontechnical People
+
+All users will have different levels of experience and knowledge, so it is important that you write documentation in simple, clear language.
+
+Review the documentation for [Twilio’s APIs](https://www.twilio.com/docs/usage/api), for instance. The writers describe and define what an API is and how it works at the very beginning of the guide. They don’t assume that everyone reading this documentation is an expert.
+
+2. Include Explicit Request and Response Cycles
+
+Those using your API need to know what your endpoint expects within the request body and what it could return as a response. For example, if your endpoint runs into an error, what response status and message will be returned? Detailing that in the documentation will help users understand what to expect and what’s needed.
+
+3. Keep It as Simple as Possible
+
+A user trying to read through three paragraphs of text on one single endpoint will feel frustrated. Where possible, keep your documentation simple and short, without sacrificing readability.
+
+4. Keep It Up-to-Date
+
+It is important to maintain your documentation. Out-of-date API documentation can lead a developer in the wrong direction and waste their time.
+
+### Step 1
+
+- Start by installing these npm packages:
 
 ```npm init```
-
-Start by installing these npm packages:
 
 [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc)
 
@@ -23,13 +47,11 @@ Start by installing these npm packages:
 
 ```npm i nodemon```
 
-Then create your own “Hello World!” application to test that your code is executing.
-
-2. Add a start "script" to the package.json in order to take advantage of nodemon.
+- Add a start "script" to the package.json in order to take advantage of nodemon.
 
 ```"start": "nodemon index.js"```
 
-3. index.js
+- index.js
 
 ```
 //----Require the packages------
@@ -52,11 +74,13 @@ app.listen(port, function() {
 });
 ```
 
-4. run the app
+- run the app
 
 ```npm start```
 
-5. Here you’ll configure swagger-jsdoc and swagger-ui. You’ll work through a library application example and automatically generate an API for a GET route, with accompanying documentation using these tools.
+### Step 2
+
+Here you’ll configure swagger-jsdoc and swagger-ui. You’ll work through a library application example and automatically generate an API for a GET route, with accompanying documentation using these tools.
 
 - swaggerOptions
 
@@ -103,7 +127,7 @@ app.get('/books', function (req, res) {
 });
 ```
 
-GOTO port ```3000/api-docs``` and click get books and click execute to see the book.
+- GOTO port ```3000/api-docs``` and click get books and click execute to see the book.
 
 
 
